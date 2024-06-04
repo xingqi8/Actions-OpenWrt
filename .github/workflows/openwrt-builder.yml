@@ -87,6 +87,12 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
+    - name: fix issues23621
+      run: |
+        chmod +x fix-issues23621.sh
+        cd openwrt
+        $GITHUB_WORKSPACE/fix-issues23621.sh
+
     - name: Compile the firmware
       id: compile
       run: |
